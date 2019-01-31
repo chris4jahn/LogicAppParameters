@@ -80,16 +80,18 @@
             }
           },
           "triggers": {},
-        "parameters": {
-          "logicId": {
-            "value": "[parameters('someId')]"
-          },
-          "logicIdSecret": {
-            "value": "[parameters('someIdSecret')]"
+          "parameters": {
+            "logicId": {
+              "value": "[parameters('someId')]"
+            },
+            "logicIdSecret": {
+              "value": "[parameters('someIdSecret')]"
+            }
           }
         }
-      }
+      },
+      ],
+      "outputs": {}
     }
-  ],
-  "outputs": {}
+  ]
 }
