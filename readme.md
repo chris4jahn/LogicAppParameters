@@ -36,3 +36,5 @@ create the Key Vault Parameter in azuredeploy.parameters.json
 
 ## Considerations
 If you change your secrets within Key Vault, these changes are not synced to your Logic App until you redploy your solution. So changing the settings of your workflow should be done in the ARM template as part of your infrastructure as code (IaC) release pipeline.
+
+THE SOFTWARE OR CODE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE/SCRIPTS OR THE USE OR OTHER DEALINGS IN THE SOFTWARE/SCRIPTS.
