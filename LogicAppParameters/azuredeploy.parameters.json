@@ -2,5 +2,19 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "logicAppName": {
+      "value": "LogicAppParametersDemo"
+    },
+    "someId": {
+      "value": "my-ID"
+    },
+    "someIdSecret": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/<my-subscription-id>/resourceGroups/LogigAppParameters/providers/Microsoft.KeyVault/vaults/chris4jahnKV"
+        },
+        "secretName": "someIdSecret"
+      }
+    }
   }
 }

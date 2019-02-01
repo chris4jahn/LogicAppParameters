@@ -30,16 +30,34 @@
         "displayName": "LogicApp"
       },
       "properties": {
+        "parameters": {
+          "someId": {
+            "value": "[parameters('someId')]"
+          },
+          "someIdSecret": {
+            "value": "[parameters('someIdSecret')]"
+          }
+        },
         "definition": {
           "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "contentVersion": "1.0.0.0",
+          "outputs": {},
+          "parameters": {
+            "someId": {
+              "type": "String"
+            },
+            "someIdSecret": {
+              "type": "SecureString"
+            }
+          },
           "actions": {
             "someAction": {
               "description": "Creates something",
               "inputs": {
                 "authentication": {
                   "audience": "<my-background-service-url",
-                  "clientId": "@{parameters('logicId')}",
-                  "secret": "@{parameters('logicIdSecret')}",
+                  "clientId": "@{parameters('someId')}",
+                  "secret": "@{parameters('someIdSecret')}",
                   "type": "ActiveDirectoryOAuth"
                 },
                 "body": {
@@ -49,45 +67,20 @@
                     "Unified"
                   ],
                   "mailEnabled": true,
-                  "mailNickname": "@{variables('GrpAlias')}",
+                  "mailNickname": "<my-nickname>",
                   "securityEnabled": false
                 },
                 "headers": {
                   "Content-Type": "application/json"
                 },
                 "method": "POST",
-                "uri": "https://graph.microsoft.com/v1.0/groups"
+                "uri": "https://my-endpoint.tld"
               },
-              "runAfter": {
-                "Grp-Alias_festlegen": [
-                  "Succeeded"
-                ]
-              },
+              "runAfter": {},
               "type": "Http"
             }
           },
-          "contentVersion": "1.0.0.0",
-          "outputs": {},
-          "parameters": {
-            "LogicAppId": {
-              "type": "String"
-            },
-            "LogicAppIdSecret": {
-              "type": "SecureString"
-            },
-            "tenantId": {
-              "type": "String"
-            }
-          },
-          "triggers": {},
-          "parameters": {
-            "logicId": {
-              "value": "[parameters('someId')]"
-            },
-            "logicIdSecret": {
-              "value": "[parameters('someIdSecret')]"
-            }
-          }
+          "triggers": {}
         }
       }
     }
